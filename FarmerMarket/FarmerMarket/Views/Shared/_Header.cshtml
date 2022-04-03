@@ -1,0 +1,72 @@
+﻿@model FarmerMarket.Models.TaiKhoan
+<section class="header-part">
+    <div class="container">
+        <div class="header-content">
+            <div class="header-media-group">
+                <button class="header-user">
+                    <img src="~/wwwroot/images/user.png" alt="user" />
+                </button>
+                <a href="./index.html">
+                    <img src="https://theme.hstatic.net/1000141988/1000751919/14/logo.png?v=80" alt="logo" />
+                </a>
+                <button class="header-src">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <a href="@Url.Action("Index","Home")" class="header-logo">
+                <img src="https://theme.hstatic.net/1000141988/1000751919/14/logo.png?v=80" alt="logo" />
+            </a>
+            @if (Session["TaiKhoan"] == null)
+            {
+                @*<a href="@Url.Action("Login","Profile")"
+                       class="header-widget" title="Đăng nhập">
+                        <img src="~/wwwroot/images/user.png" alt="user" /><span>Đăng nhập</span>
+                    </a>*@
+                <div class="header-widget" title="Tài khoản">
+                    <img src="~/wwwroot/images/user.png" alt="user" />
+                    <div class="login-register">
+                        <span><a href="@Url.Action("Login","Profile")">Đăng nhập</a></span>
+                        <span><a href="@Url.Action("Register","Profile")">Đăng ký</a></span>
+                    </div>
+
+                </div>
+            }
+            else
+            {
+                <a href="@Url.Action("Index","Profile")"
+                   class="header-widget" title="Tài khoản">
+                    <img src="~/wwwroot/images/user.png" alt="user" /><span>@Model.HoTen</span>
+                </a>
+                <div style="margin-left: 30px;">
+                    <a href="@Url.Action("Logout","Profile")">Thoát</a>
+                </div>
+            }
+            <div class="header-form">
+                <input id="keyword" type="text" placeholder="Tìm kiếm..." />
+                <button type="button" onclick="onSearch()">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <div class="header-widget-group">
+                <a class="header-widget header-cart" title="Cartlist" href="/Checkout/Index">
+                    <i class="fas fa-shopping-bag"></i><sup id="hdk-count">@ViewBag.cartpronumber</sup>
+                    @if(ViewBag.cartpronumber == 0)
+                    {
+                        <span>Tổng<small id="total-amount">Chưa có sản phẩm</small></span>
+                    }
+                    else
+                    {
+                        <span>Tổng<small id="total-amount">Có @ViewBag.cartpronumber sản phẩm </small></span>
+                    }
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    const onSearch = () => {
+        const keyword = document.getElementById("keyword").value;
+
+        window.location = `/Product/Search?keyword=${keyword}`;
+    }
+</script>

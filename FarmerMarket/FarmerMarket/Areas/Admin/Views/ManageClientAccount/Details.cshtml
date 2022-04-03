@@ -1,0 +1,92 @@
+﻿@model FarmerMarket.Models.TaiKhoan
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="content container-fluid">
+    <div class="row">
+        <div class="col-xl-8 offset-xl-2">
+            <!-- Page Header -->
+            <div class="page-header">
+                <div class="row">
+                    <div class="col">
+                        <h3 class="page-title">Xem chi tiết khách hàng</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.TenTaiKhoan)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.TenTaiKhoan)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.MatKhau)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.MatKhau)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Quyen)
+                        </dt>
+                        <dd>Người dùng</dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.TrangThai)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.TrangThai)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.HoTen)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.HoTen)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Email)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Email)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.SoDienThoai)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.SoDienThoai)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.DiaChi)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.DiaChi)
+                        </dd>
+
+                        <dt>
+                            <a href="@Url.Action("Index","ManageClientAccount")" class="btn btn-link">Quay lại</a>
+                        </dt>
+
+                    </dl>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
